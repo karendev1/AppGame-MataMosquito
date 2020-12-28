@@ -20,7 +20,8 @@ if(document.getElementById('mosquito')){
     document.getElementById('mosquito').remove()
 
     if(vidas > 3){
-        alert('Game Over')
+        
+        window.location.href = 'game_over.html'
     } else{
         document.getElementById('v' + vidas).src="assets/imagens/coracao_vazio.png" 
 
