@@ -3,6 +3,23 @@
 var width;
 var height;
 var vidas = 1;
+var tempo = 30;
+
+var criaMosquitoTempo = 1500
+
+var nivel = window.location.search
+
+if(nivel === 'normal'){
+    //1500
+    criaMosquitoTempo = 1500
+} else if (nivel === 'dificil'){
+    //1000
+    criaMosquitoTempo = 1000
+}else if(nivel === 'muito-dificil'){
+    //750
+    criaMosquitoTempo = 750
+}
+
 
 function ajustaTamanhoPalcoJogo(){
      width = window.innerWidth
@@ -11,6 +28,17 @@ function ajustaTamanhoPalcoJogo(){
      console.log(width, height)
 }
 ajustaTamanhoPalcoJogo()
+
+var cronometro = setInterval(function(){
+    tempo -= 1
+    if(tempo < 0){
+        clearInterval(cronometro)
+        clearInterval(criaMosca)
+        window.location.href = 'vitoria.html'
+    }else{
+        document.getElementById('cronometro').innerHTML = tempo //InnerHTML significa tudo que está contido entre as tags
+    }
+}, 1000)
 
 //Criando posições randômicas
 
@@ -86,6 +114,6 @@ function ladoAleatorio(){
     }
 }
 
-setInterval(function(){
+var criaMosca = setInterval(function(){
     posicaoRandomica()
-}, 2000)
+}, criaMosquitoTempo)

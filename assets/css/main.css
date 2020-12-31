@@ -48,7 +48,7 @@ body {
   align-items: center;
 }
 .container .botao button {
-  height: 50px;
+  height: 30px;
   width: 150px;
   border-radius: 15px;
   background: #ec1839;
@@ -56,4 +56,8 @@ body {
   text-transform: uppercase;
   border: 1px solid #000;
   cursor: pointer;
+}
+.container .btn-select {
+  margin-bottom: 3px;
+  height: 30px;
 }

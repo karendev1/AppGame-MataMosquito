@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mata Mosquito</title>
+    <title>App Game Mata Mosquito</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <script defer src="assets/js/main.js"></script>
-</head>
-<body onresize="ajustaTamanhoPalcoJogo()">
-    <div class="painel">
+    <script>
+        function iniciarJogo() {
+            var nivel = document.getElementById('nivel').value
 
-        <div class="vidas">
-            <img id="v1" src="assets/imagens/coracao_cheio.png" alt="Coração Vazio">
-            <img id="v2" src="assets/imagens/coracao_cheio.png" alt="Coração Cheio">
-            <img id="v3" src="assets/imagens/coracao_cheio.png" alt="Coração Cheio">
+            if(nivel === ''){
+                alert('Selecione um nível para iniciar o jogo!')
+                return false
+            }
+
+            window.location.href = 'jogo.html?' + nivel// forçando redirecionamento para a página de jogo
+}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="imagens">
+            <img src="assets/imagens/game.png" alt="game">
+        </div>
+        <div class="botao btn-select">
+            <select name="" id="nivel">
+                <option value="">-- Selecione o nível --</option>
+                <option value="normal">Normal</option>
+                <option value="dificil">Difícil</option>
+                <option value="muito-dificil">MUITO difícil</option>
+            </select>
         </div>
 
-        <div class="cronometro">
-            Tempo restante: ?
+        <div class="botao">
+            <button type="button" onclick="iniciarJogo()">Iniciar Jogo</button>
         </div>
     </div>
 </body>
